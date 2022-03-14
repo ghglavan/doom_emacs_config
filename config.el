@@ -75,4 +75,28 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(require 'ox-md)
+(require 'ox-json)
+(require 'ox-reveal)
+(require 'alert)
+(setq org-reveal-root "~/Work/reveal.js")
 (setq confirm-kill-emacs nil)
+
+(use-package org-alert
+  :ensure t
+  :custom (alert-default-style 'libnotify)
+  :config
+  (setq org-alert-interval 300
+        org-alert-notification-title "Org alert reminder!"
+        org-alert-interval 10)
+  (org-alert-enable))
+
+(after! org
+  (setq org-todo-keywords
+      '((sequence "TODO(t)" "PROGRESS(p!)" "WAITING(w@)" "|" "DONE(d@)" "CANCELED(c@)" "ABANDONED(a@)")))
+  (setq org-directory "~/org")
+  (setq org-agenda-files '("~/org/agenda/")))
+
+
+(make-directory "~/.org-jira" 'ignore-if-exists)
+(setq jiralib-url "https://jira.bitdefender.biz/")
