@@ -96,7 +96,3 @@
       '((sequence "TODO(t)" "PROGRESS(p!)" "WAITING(w@)" "|" "DONE(d@)" "CANCELED(c@)" "ABANDONED(a@)")))
   (setq org-directory "~/org")
   (setq org-agenda-files '("~/org/agenda/")))
-
-
-(make-directory "~/.org-jira" 'ignore-if-exists)
-(setq jiralib-url "https://jira.bitdefender.biz/")
